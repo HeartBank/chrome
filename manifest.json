@@ -1,0 +1,25 @@
+{
+  "manifest_version": 2,
+
+  "name": "HeartBank®",
+  "description": "Thank with HeartBank",
+  "version": "0.0.1",
+
+  "icons": {
+    "16": "icons/hb16.png",
+    "48": "icons/hb48.png",
+    "128": "icons/hb128.png"
+  },
+
+  "browser_action": {
+    "default_icon": "icons/heartbank.png",
+    "default_popup": "heartbank.html",
+    "default_title": "Family Bank"
+  },
+
+  "permissions": [
+    "activeTab",
+    "http://localhost:8080",
+    "https://endpoint.heartbank.cloud"
+  ]
+}
