@@ -1,15 +1,8 @@
-class EditableNameTag extends Polymer.Element {
-  static get is() { return "editable-name-tag"; }
+$('#login').click(function() {
+  chrome.extension.getBackgroundPage().console.log('hi2');
+  chrome.runtime.openOptionsPage();
+});
 
-  // configure the owner property
-  static get properties() {
-    return {
-      owner: {
-        type: String,
-        value: 'Daniel'
-      }
-    };
-  }
-
-}
-customElements.define(EditableNameTag.is, EditableNameTag);
+$('#history').click(function() {
+  chrome.tabs.create({'url':"pages/heartbank.html"});
+});
