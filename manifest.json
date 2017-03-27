@@ -45,7 +45,7 @@
     }]
   },
 
-  "content_security_policy": "script-src 'self' https://endpoint.heartbank.cloud/*; object-src 'self'",
+  "content_security_policy": "script-src 'self' https://endpoint.heartbank.cloud/; object-src 'self'",
 
   "web_accessible_resources": [
     "icons/*",
@@ -61,7 +61,8 @@
     "notifications",
     "storage",
     "unlimitedStorage",
-    "ttsEngine"
+    "ttsEngine",
+    "https://endpoint.heartbank.cloud/"
   ],
 
   "optional_permissions": [
