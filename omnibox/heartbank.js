@@ -1,5 +1,27 @@
-document.getElementById("login").addEventListener('click', () => {
-  //chrome.extension.getBackgroundPage().console.log('hi');
-  //chrome.tabs.create({'url':"pages/heartbank.html"});
-  chrome.runtime.openOptionsPage();
-}, false);
+heartbank = new HeartBank("http://localhost:8080");
+
+const transact = (credentials) => {
+
+  heartbank.customers(credentials.branch)
+  .then(data => {
+    console.log(data);
+  }).catch(error => console.error(error));
+
+  document.getElementById("process").addEventListener('click', () => {
+    heartbank.transact()
+    .then(data => {
+      console.log(data);
+    }).catch(error => console.error(error));
+  }, false);
+
+}
+
+chrome.storage.sync.get({
+    key:null,
+    secret:null,
+    client:null,
+    token:null,
+    branch:null,
+    customer:null,
+    user:null
+  }, items => transact(items));

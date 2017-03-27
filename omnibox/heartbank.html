@@ -16,7 +16,7 @@
 	<body>
     <form>
       <div class="form-group">
-        <select class="form-control" id="command">
+        <select name="command" class="form-control" id="command">
           <option>Give</option>
           <option>Take</option>
           <option>Reward</option>
@@ -24,7 +24,7 @@
         </select>
       </div>
       <div class="form-group">
-        <select multiple class="form-control" id="usernames">
+        <select name="to" multiple class="form-control" id="usernames">
           <option>Jane</option>
           <option>John</option>
         </select>
@@ -32,23 +32,25 @@
       <div class="form-group">
         <div class="input-group">
           <div class="input-group-addon">$</div>
-          <input type="text" class="form-control" id="amount" placeholder="Amount">
+          <input name="amount" type="text" class="form-control" id="amount" placeholder="Amount">
         </div>
       </div>
       <div class="form-group">
-        <textarea class="form-control" id="description" rows="3" placeholder="Description"></textarea>
+        <textarea name="description" class="form-control" id="description" rows="3" placeholder="Description"></textarea>
       </div>
       <div class="form-group">
         <div class="form-check">
-          <label class="form-check-label"><input id="anonymity" type="checkbox" class="form-check-input"> Anonymous</label>
+          <label name="anonymity" class="form-check-label"><input id="anonymity" type="checkbox" class="form-check-input"> Anonymous</label>
         </div>
       </div>
       <div class="form-group">
-        <input type="file" class="form-control-file" id="picture">
+        <input name="media" type="file" class="form-control-file" id="media">
       </div>
-      <button type="button" class="btn btn-primary">Process Transaction</button>
+      <button id="process" type="button" class="btn btn-primary">Process Transaction</button>
       <a href="../pages/heartbank.html" target="_blank">View History</a>
+      <a href="heartbank.html" target="_blank">Debug</a>
     </form>
+    <script src="../heartbank.js"></script>
     <script src="heartbank.js"></script>
 	</body>
 </html>

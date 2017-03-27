@@ -25,14 +25,14 @@
   },
 
   "background": {
-    "scripts": ["pages/heartbank.js"],
+    "scripts": ["heartbank.js", "background.js"],
     "persistent": false
   },
 
   "options_page": "pages/heartbank.html",
 
   "options_ui": {
-    "page": "omnibox/login.html",
+    "page": "omnibox/credentials.html",
     "chrome_style": false
   },
 
@@ -62,7 +62,8 @@
     "storage",
     "unlimitedStorage",
     "ttsEngine",
-    "https://endpoint.heartbank.cloud/"
+    "http://localhost:8080/*",
+    "https://endpoint.heartbank.cloud/*"
   ],
 
   "optional_permissions": [
