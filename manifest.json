@@ -25,14 +25,14 @@
   },
 
   "background": {
-    "scripts": ["heartbank.js", "background.js"],
+    "scripts": ["heartbank.js"],
     "persistent": false
   },
 
   "options_page": "pages/heartbank.html",
 
   "options_ui": {
-    "page": "omnibox/credentials.html",
+    "page": "omnibox/login.html",
     "chrome_style": false
   },
 
@@ -45,7 +45,7 @@
     }]
   },
 
-  "content_security_policy": "script-src 'self' https://endpoint.heartbank.cloud/; object-src 'self'",
+  "content_security_policy": "script-src 'self' *://*/*; object-src 'self'",
 
   "web_accessible_resources": [
     "icons/*",
@@ -55,6 +55,7 @@
   ],
 
   "permissions": [
+    "tabs",
     "alarms",
     "cookies",
     "geolocation",
@@ -62,12 +63,10 @@
     "storage",
     "unlimitedStorage",
     "ttsEngine",
-    "http://localhost:8080/*",
-    "https://endpoint.heartbank.cloud/*"
+    "*://*/*"
   ],
 
   "optional_permissions": [
-    "tabs",
     "activeTab",
     "webRequest"
   ]

@@ -1,27 +1,28 @@
-heartbank = new HeartBank("http://localhost:8080");
+const transact = cookies => {
 
-const transact = (credentials) => {
+  const heartbank = new HeartBank();
 
-  heartbank.customers(credentials.branch)
+  heartbank.customers()
   .then(data => {
     console.log(data);
   }).catch(error => console.error(error));
 
   document.getElementById("process").addEventListener('click', () => {
-    heartbank.transact()
+    heartbank.transact(new FormData(document.getElementById("transaction")))
     .then(data => {
       console.log(data);
     }).catch(error => console.error(error));
   }, false);
 
+  document.getElementById("login").addEventListener('click', () => {
+    //chrome.runtime.openOptionsPage();
+    chrome.tabs.create({'url':HEARTBANK + '/login'});
+  }, false);
+
 }
 
-chrome.storage.sync.get({
-    key:null,
-    secret:null,
-    client:null,
-    token:null,
-    branch:null,
-    customer:null,
-    user:null
-  }, items => transact(items));
+chrome.cookies.getAll({url:HEARTBANK}, cookies => {
+  const jar = {};
+  cookies.forEach(cookie => jar[cookie.name] = cookie.value);
+  transact(jar);
+});

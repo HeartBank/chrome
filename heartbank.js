@@ -1,25 +1,20 @@
-//chrome.extension.getBackgroundPage().console.log('test');
-//chrome.tabs.create({'url':"pages/heartbank.html"});
-//chrome.runtime.openOptionsPage();
+//const HEARTBANK = "https://endpoint.heartbank.cloud";
+const HEARTBANK = "http://localhost:8080";
 
 class HeartBank {
 
-  constructor(url="https://endpoint.heartbank.cloud") {
-    this.url = url;
+  constructor() {
+
   }
 
-  cookie(name) {
-    chrome.cookies.get({name, url:this.url}, cookie => {
-        chrome.storage.sync.set({name:cookie.value});
-    });
+  customers() {
+    return fetch(HEARTBANK + '/transact', {mode:'no-cors', credentials:'include', method:'get'}).then(response => response.json());
   }
 
-  customers(branch) {
-    return fetch(this.url + '/branches/' + branch, {mode:'no-cors', credentials:'include', method:'get', body:null}).then(response => response.json());
-  }
-
-  transact(client, token, body) {
-
+  transact(transaction) {
+    return fetch(HEARTBANK + '/transact', {mode:'no-cors', credentials:'include', method:'post', body:transaction}).then(response => response.json());
   }
 
 }
+
+//chrome.extension.getBackgroundPage().console.log('test');
