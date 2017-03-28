@@ -4,7 +4,7 @@
   "name": "HeartBank®",
   "author": "Thon Ly",
   "description": "Thank with HeartBank",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "default_locale": "en",
   "offline_enabled": false,
 
@@ -45,7 +45,7 @@
     }]
   },
 
-  "content_security_policy": "script-src 'self' *://*/*; object-src 'self'",
+  "content_security_policy": "script-src 'self'; object-src 'self'",
 
   "web_accessible_resources": [
     "icons/*",

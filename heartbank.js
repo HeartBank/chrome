@@ -1,18 +1,18 @@
-//const HEARTBANK = "https://endpoint.heartbank.cloud";
-const HEARTBANK = "http://localhost:8080";
+const HEARTBANK = "https://endpoint.heartbank.cloud";
+//const HEARTBANK = "http://localhost:8080";
 
 class HeartBank {
 
-  constructor() {
-
+  constructor(url=HEARTBANK) {
+    this.url = url;
   }
 
   customers() {
-    return fetch(HEARTBANK + '/transact', {mode:'no-cors', credentials:'include', method:'get'}).then(response => response.json());
+    return fetch(this.url + '/bank', {mode:'cors', credentials:'include', method:'get'}).then(response => response.json());
   }
 
   transact(transaction) {
-    return fetch(HEARTBANK + '/transact', {mode:'no-cors', credentials:'include', method:'post', body:transaction}).then(response => response.json());
+    return fetch(this.url + '/bank', {mode:'cors', credentials:'include', method:'post', body:transaction}).then(response => response.json());
   }
 
 }
