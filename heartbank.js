@@ -1,4 +1,4 @@
-const HEARTBANK = "https://endpoint.heartbank.cloud";
+const HEARTBANK = "https://kiitos.heartbank.cloud";
 //const HEARTBANK = "http://localhost:8080";
 
 class HeartBank {
